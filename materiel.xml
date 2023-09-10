@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- Vue pour le materiel -->
+    <record id="material_form" model="ir.ui.view">
+        <field name="name">material.material.form</field>
+        <field name="model">material</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group col="4">
+                        <group colspan="2">
+                            <field name="type_materiel_id" placeholder= "Exple: PC,ONDULEUR..."/>
+                            <field name="name" placeholder="Exple: HP,ASUS..."/>
+                            <field name="Model" placeholder= "Exple: OptiPlex 3080..."/>
+                            <field name="marque" placeholder="Exple: ASUS, DELL.."/>
+                        </group>
+                        <group colspan="2">
+                            <field name="etiquette" placeholder="Exple: Ec 001..."/>
+                            <field name="stock_quantity"/>
+                            <field name="etat"/>
+                            <field name="image"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vue Kanban pour le materiel -->
+    <record id="material_kanban" model="ir.ui.view">
+        <field name="name">material.material.kanban</field>
+        <field name="model">material</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="stock_quantity"/>
+                <field name="image"/>
+                <field name="etat"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_content">
+                            <div class="oe_kanban_card">
+                                <div class="oe_kanban_card_content">
+                                    <strong class="o_kanban_record_title"/>
+                                    <p>Name : <field name="name"/>
+                                    </p>
+                                    <p>Stock : <field name="stock_quantity"/>
+                                    </p>
+                                    <p>Etat : <field name="etat"/>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="material_tree" model="ir.ui.view">
+        <field name="name">material.material.tree</field>
+        <field name="model">material</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+                <field name="marque"/>
+                <field name="type_materiel_id"/>
+                <field name="Model"/>
+                <field name="etiquette"/>
+                <field name="etat"/>
+                <field name="stock_quantity"/>
+                <field name="quantite_reserve"/>
+                <field name="quantite_emprunte"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="material_view_search" model="ir.ui.view">
+        <field name="name">material.material.search</field>
+        <field name="model">material</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_material" model="ir.actions.act_window">
+        <field name="name">Materiels</field>
+        <field name="res_model">material</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+</odoo>

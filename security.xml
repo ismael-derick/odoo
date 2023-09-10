@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Empêcher la modification des emprunts validés ou rejetés -->
+    <record id="rule_emprunt_readonly" model="ir.rule">
+        <field name="name">Emprunt Readonly Rule</field>
+        <field name="model_id" ref="model_emprunt"/>
+        <field name="domain_force">[('state', 'not in', ('draft', 'validated', 'rejected'))]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+        <field name="groups" eval="[(4, ref('base.group_erp_manager'))]"/>
+    </record>
+
+    <!-- Empêcher la modification des réservations validées ou rejetées -->
+    <record id="rule_reservation_readonly" model="ir.rule">
+        <field name="name">Reservation Readonly Rule</field>
+        <field name="model_id" ref="model_reservation"/>
+        <field name="domain_force">[('state', 'not in', ('draft', 'validated', 'rejected'))]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+        <field name="groups" eval="[(4, ref('base.group_erp_manager'))]"/>
+    </record>
+
+
+</odoo>

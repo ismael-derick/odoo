@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="type_materiel_view_tree" model="ir.ui.view">
+        <field name="name">type_materiel_view_tree.view.tree</field>
+        <field name="model">type.materiel</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="code" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_type_materiel" model="ir.actions.act_window">
+        <field name="name">Types de Matériel</field>
+        <field name="res_model">type.materiel</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+</odoo>

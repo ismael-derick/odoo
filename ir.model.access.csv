@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employee_user,access_employee_user,model_hr_employee,base.group_user,1,1,1,0
+access_admin_user,access_admin_user,model_hr_employee,base.group_erp_manager,1,1,1,1
+access_material_user,access_material_user,model_material,base.group_user,1,1,0,0
+access_material_admin,access_material_admin,model_material,base.group_erp_manager,1,1,1,1
+access_emprunt_user,access_emprunt_user,model_emprunt,base.group_user,1,1,1,0
+access_emprunt_admin,access_emprunt_admin,model_emprunt,base.group_erp_manager,1,1,1,1
+access_reservation_user,access_reservation_user,model_reservation,base.group_user,1,1,1,0
+access_reservation_admin,access_reservation_admin,model_reservation,base.group_erp_manager,1,1,1,1
+access_retour_emprunt_user,access_retour_emprunt_user,model_retour_emprunt,base.group_user,1,1,1,0
+access_retour_emprunt_admin,access_retour_emprunt_admin,model_retour_emprunt,base.group_erp_manager,1,1,1,1
+accces_type_materiel_admin,accces_type_materiel_admin,model_type_materiel,base.group_erp_manager,1,1,1,1
+access_type_materiel_user,access_type_materiel_user,model_type_materiel,base.group_user,1,1,0,0

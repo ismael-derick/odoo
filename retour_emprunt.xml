@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <!-- Ajoutez cette vue dans le fichier XML correspondant au modèle 'retour.emprunt' -->
+        <record id="view_retour_emprunt_form" model="ir.ui.view">
+            <field name="name">retour.emprunt.form</field>
+            <field name="model">retour.emprunt</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="Valider" type="object" name="return_materials" class="oe_highlight" groups="base.group_erp_manager"/>
+                    </header>
+                    <group col="4">
+                        <group colspan="2">
+                            <field name="employee_id"  readonly="1"/>
+                            <field name="material_id" readonly="1"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="code_emprunt"/>
+                            <field name="quantity_returned"/>
+                            <field name="return_date" readonly="1"></field>
+                        </group>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user" />
+                        <field name="message_ids" />
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_retour_emprunt_tree" model="ir.ui.view">
+            <field name="name">retour.emprunt.tree</field>
+            <field name="model">retour.emprunt</field>
+            <field name="arch" type="xml">
+                <tree string="Retours d'Emprunt">
+                    <field name="employee_id" readonly="1"/>
+                    <field name="material_id"/>
+                    <field name="return_date" />
+                    <field name="quantity_returned"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_retour" model="ir.actions.act_window">
+            <field name="name">Retours d'Emprunt</field>
+            <field name="res_model">retour.emprunt</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
+

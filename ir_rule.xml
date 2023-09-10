@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Règle d'accès pour les emprunts des employés -->
+    <record id="rule_employee_emprunt" model="ir.rule">
+        <field name="name">Employee Emprunt Rule</field>
+        <field name="model_id" ref="model_emprunt"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Règle d'accès pour les emprunts de l'administrateur -->
+    <record id="rule_admin_emprunt" model="ir.rule">
+        <field name="name">Admin Emprunt Rule</field>
+        <field name="model_id" ref="model_emprunt"/>
+        <field name="groups" eval="[(4, ref('base.group_erp_manager'))]"/>
+    </record>
+
+    <!-- Règle d'accès pour les réservations des employés -->
+    <record id="rule_employee_reservation" model="ir.rule">
+        <field name="name">Employee Reservation Rule</field>
+        <field name="model_id" ref="model_reservation"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Règle d'accès pour les réservations de l'administrateur -->
+    <record id="rule_admin_reservation" model="ir.rule">
+        <field name="name">Admin Reservation Rule</field>
+        <field name="model_id" ref="model_reservation"/>
+        <field name="groups" eval="[(4, ref('base.group_erp_manager'))]"/>
+    </record>
+
+    <!-- Règle d'accès pour les retours de matériel des employés -->
+    <record id="rule_employee_retour_mprunt" model="ir.rule">
+        <field name="name">Employee RetourEmprunt Rule</field>
+        <field name="model_id" ref="model_retour_emprunt"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Règle d'accès pour les retours de matériel de l'administrateur -->
+    <record id="rule_admin_retour_emprunt" model="ir.rule">
+        <field name="name">Admin RetourEmprunt Rule</field>
+        <field name="model_id" ref="model_retour_emprunt"/>
+        <field name="groups" eval="[(4, ref('base.group_erp_manager'))]"/>
+    </record>
+
+</odoo>

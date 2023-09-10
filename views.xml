@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <!-- Menu -->
+    <menuitem 
+        id="main_menu_gestion_emprunt" 
+        name="Gestions des Emprunts" 
+        sequence="0"/>
+
+    <menuitem
+        id="configuration_menu"
+        name="Configuration"
+        parent="main_menu_gestion_emprunt"
+        sequence="15"/>
+    
+    <menuitem
+        id="confi_menu"
+        name="Retour Emprunts "
+        action="action_retour"
+        parent="main_menu_gestion_emprunt"
+        sequence="10"/>
+
+    <menuitem 
+        id="menu_materiel" 
+        name="Materiels" 
+        parent="configuration_menu" 
+        action="action_material"
+        sequence="1"/>
+    
+    <menuitem 
+        id="emprunt_menu" 
+        name="Emprunts" 
+        parent="main_menu_gestion_emprunt" 
+        sequence="1"/>
+
+    <menuitem 
+        id="menu_emprunt" 
+        name="Emprunt" 
+        parent="emprunt_menu" 
+        action="action_emprunt"
+        sequence="1"/>
+
+    <menuitem 
+        id="menu_reservation" 
+        name="Reservation" 
+        parent="emprunt_menu" 
+        action="action_reservation"
+        sequence="2"/>
+    
+    <menuitem 
+        id="menu_type_materiel" 
+        name="Types Matériel" 
+        parent="configuration_menu" 
+        action="action_type_materiel" 
+        sequence="10"/>
+
+</odoo>
